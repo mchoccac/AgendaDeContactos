@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_contacto_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_contacto_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="feesPaid" Type="int" Mode="In" />
+          <Parameter Name="gender" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="emailId" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="telephoneNumber" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+          <Parameter Name="isActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_contacto_upd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="firstName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="feesPaid" Type="int" Mode="In" />
+          <Parameter Name="gender" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="emailId" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="telephoneNumber" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="dateOfBirth" Type="date" Mode="In" />
+          <Parameter Name="isActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_select_all_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="TestModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TestEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_contacto_del">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_contacto_ins">
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="feesPaid" Mode="In" Type="Int32" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="emailId" Mode="In" Type="String" />
+            <Parameter Name="telephoneNumber" Mode="In" Type="String" />
+            <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+            <Parameter Name="isActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_contacto_upd">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="feesPaid" Mode="In" Type="Int32" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="emailId" Mode="In" Type="String" />
+            <Parameter Name="telephoneNumber" Mode="In" Type="String" />
+            <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+            <Parameter Name="isActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_select_all_id" ReturnType="Collection(TestModel.sp_select_all_id_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_select_all_id_Result">
+          <Property Type="Int32" Name="iD" Nullable="false" />
+          <Property Type="String" Name="firstName" Nullable="false" />
+          <Property Type="String" Name="lastName" Nullable="false" />
+          <Property Type="Int32" Name="feesPaid" Nullable="false" />
+          <Property Type="String" Name="gender" Nullable="false" />
+          <Property Type="String" Name="emailId" Nullable="false" />
+          <Property Type="String" Name="telephoneNumber" Nullable="false" />
+          <Property Type="DateTime" Name="dateOfBirth" Nullable="false" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+          <Property Type="DateTime" Name="creationDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="lastModifiedDate" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities1" >
+          <FunctionImportMapping FunctionImportName="sp_contacto_del" FunctionName="TestModel.Store.sp_contacto_del" />
+          <FunctionImportMapping FunctionImportName="sp_contacto_ins" FunctionName="TestModel.Store.sp_contacto_ins" />
+          <FunctionImportMapping FunctionImportName="sp_contacto_upd" FunctionName="TestModel.Store.sp_contacto_upd" />
+          <FunctionImportMapping FunctionImportName="sp_select_all_id" FunctionName="TestModel.Store.sp_select_all_id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.sp_select_all_id_Result">
+                <ScalarProperty Name="iD" ColumnName="iD" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="feesPaid" ColumnName="feesPaid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+                <ScalarProperty Name="telephoneNumber" ColumnName="telephoneNumber" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="lastModifiedDate" ColumnName="lastModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

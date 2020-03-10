@@ -1,0 +1,175 @@
+﻿@model IEnumerable<ProyectoContactos.Models.sp_select_all_id_Result>
+
+@{
+
+    ViewBag.Title = "Index";
+}
+
+
+<h1 class="h3 mb-2 text-gray-900">Token Web</h1>
+
+<div class="card-header py-2">
+
+</div>
+
+
+
+<br />
+
+
+
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.firstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.lastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.feesPaid)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.gender)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.emailId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.telephoneNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.dateOfBirth)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.isActive)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.creationDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.lastModifiedDate)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.firstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.feesPaid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.emailId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.telephoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dateOfBirth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.isActive)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.creationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lastModifiedDate)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", "sp_select_all_id_Result",new { id = item.iD }) " class="btn btn-success" data-toggle="tooltip" data-placement="top" title="">
+                                    <span class="icon">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                    </span>
+                                    <br />
+                                    <span class="text">Detalles</span>
+                                </a>
+                                <br />
+                                <a href="@Url.Action("Edit", "sp_select_all_id_Result",new { id = item.iD }) " class="btn btn-info" data-toggle="tooltip" data-placement="top" title="">
+                                    <span class="icon">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </span>
+                                    <br />
+                                    <span class="text">Editar</span>
+                                </a>
+                                <br />
+                                <a href="@Url.Action("Delete", "sp_select_all_id_Result",new { id = item.iD }) " class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="">
+                                    <span class="icon">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </span>
+                                    <br />
+                                    <span class="text">Eliminar</span>
+                                </a>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var table = $('#dataTable').DataTable({
+
+                responsive: true
+
+            }).on("draw", function () {
+
+                $('[data-toggle="tooltip"]').tooltip();
+
+            });
+
+
+
+            $(function () {
+
+                $('[data-toggle="tooltip"]').tooltip()
+
+            });
+
+        });
+
+    </script>
+
+}
+
+@Scripts.Render("~/bundles/jqueryval")
+
+
+

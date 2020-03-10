@@ -1,0 +1,100 @@
+﻿@model ProyectoContactos.Models.sp_select_all_id_Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>sp_select_all_id_Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.feesPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.feesPaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telephoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telephoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*Html.ActionLink("Edit", "Edit", new { id = Model.iD })*@
+    @Html.ActionLink("Editar", "Edit", new { id = Model.iD }, new { @class = "btn btn-success" })
+    @*Html.ActionLink("Back to List", "Index")*@
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+</p>
